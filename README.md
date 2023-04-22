@@ -1,6 +1,6 @@
 # Webster Programming Language
 
-Webster is a simple programming language inspired by TypeScript, Ruby, and Swift and has been written using Go. This README provides an overview of the language's features and syntax.
+Webster is a programming language inspired by TypeScript, Ruby, and Swift and has been written using Go. This README provides an overview of the language's features and syntax.
 
 ## Installation
 
