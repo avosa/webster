@@ -1,11 +1,16 @@
 package webster
 
-import "strconv"
+import (
+	"strconv"
+)
 
 type TokenType int
 
 const (
 	TokenNumber TokenType = iota
+	TokenString
+	TokenBool
+	TokenArray
 	TokenPlus
 	TokenMinus
 	TokenMultiply
@@ -15,7 +20,7 @@ const (
 
 type Token struct {
 	Type  TokenType
-	Value float64
+	Value interface{}
 }
 
 type Lexer struct {
@@ -63,10 +68,20 @@ func (l *Lexer) NextToken() Token {
 		}
 	case 0:
 		tok = Token{Type: TokenEOF}
+	case '"':
+		tok = Token{Type: TokenString, Value: l.readString()}
+		return tok
+	case '[':
+		tok = Token{Type: TokenArray, Value: l.readArray()}
+		return tok
 	default:
 		if isDigit(l.current) {
 			value := l.readNumber()
 			tok = Token{Type: TokenNumber, Value: value}
+			return tok
+		} else if l.current == 't' || l.current == 'f' {
+			value := l.readBoolean()
+			tok = Token{Type: TokenBool, Value: value}
 			return tok
 		}
 		tok = Token{Type: TokenEOF}
@@ -89,7 +104,7 @@ func (l *Lexer) skipSingleLineComment() {
 }
 
 func (l *Lexer) skipMultiLineComment() {
-	for {
+	for l.current != 0 {
 		l.readChar()
 		if l.current == '*' && l.peekChar() == '/' {
 			l.readChar()
@@ -103,12 +118,57 @@ func (l *Lexer) readNumber() float64 {
 	startPos := l.pos - 1
 
 	for isDigit(l.current) {
-
 		l.readChar()
 	}
 
 	value, _ := strconv.ParseFloat(l.input[startPos:l.pos-1], 64)
 	return value
+}
+
+func (l *Lexer) readString() string {
+	startPos := l.pos
+
+	for {
+		l.readChar()
+		if l.current == '"' || l.current == 0 {
+			break
+		}
+	}
+
+	return l.input[startPos : l.pos-1]
+}
+
+func (l *Lexer) readArray() []interface{} {
+	var arr []interface{}
+
+	for l.current != ']' && l.current != 0 {
+		if isDigit(l.current) {
+			value := l.readNumber()
+			arr = append(arr, value)
+		} else if l.current == '"' {
+			value := l.readString()
+			arr = append(arr, value)
+		} else if l.current == 't' || l.current == 'f' {
+			value := l.readBoolean()
+			arr = append(arr, value)
+		}
+		l.readChar()
+	}
+
+	return arr
+}
+
+func (l *Lexer) readBoolean() bool {
+	startPos := l.pos - 1
+
+	for l.current != ' ' && l.current != '\t' && l.current != '\n' && l.current != '\r' && l.current != 0 {
+		l.readChar()
+	}
+
+	if l.input[startPos:l.pos-1] == "true" {
+		return true
+	}
+	return false
 }
 
 func (l *Lexer) peekChar() byte {
