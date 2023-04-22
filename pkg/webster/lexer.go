@@ -52,7 +52,15 @@ func (l *Lexer) NextToken() Token {
 	case '*':
 		tok = Token{Type: TokenMultiply}
 	case '/':
-		tok = Token{Type: TokenDivide}
+		if l.peekChar() == '/' {
+			l.skipSingleLineComment()
+			return l.NextToken()
+		} else if l.peekChar() == '*' {
+			l.skipMultiLineComment()
+			return l.NextToken()
+		} else {
+			tok = Token{Type: TokenDivide}
+		}
 	case 0:
 		tok = Token{Type: TokenEOF}
 	default:
@@ -74,15 +82,40 @@ func (l *Lexer) skipWhitespace() {
 	}
 }
 
+func (l *Lexer) skipSingleLineComment() {
+	for l.current != '\n' && l.current != 0 {
+		l.readChar()
+	}
+}
+
+func (l *Lexer) skipMultiLineComment() {
+	for {
+		l.readChar()
+		if l.current == '*' && l.peekChar() == '/' {
+			l.readChar()
+			l.readChar()
+			break
+		}
+	}
+}
+
 func (l *Lexer) readNumber() float64 {
 	startPos := l.pos - 1
 
 	for isDigit(l.current) {
+
 		l.readChar()
 	}
 
 	value, _ := strconv.ParseFloat(l.input[startPos:l.pos-1], 64)
 	return value
+}
+
+func (l *Lexer) peekChar() byte {
+	if l.pos >= len(l.input) {
+		return 0
+	}
+	return l.input[l.pos]
 }
 
 func isDigit(c byte) bool {
