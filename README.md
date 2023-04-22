@@ -244,15 +244,3 @@ let sum = Math.add(3, 4)
 4. Dynamic Libraries
 5. Advanced Language Features
 6. Tools and Ecosystem
-
-# Project structure
-
-webster/
-├── cmd/
-│ ├── wster/
-│ │ └── main.go
-└── pkg/
-└── webster/
-├── interpreter.go
-├── print.go
-└── lexer.go
