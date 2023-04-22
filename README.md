@@ -20,7 +20,7 @@ git clone https://github.com/avosa/webster.git
 cd webster
 ```
 
-4. Build the wster command as mentioned before: `go build -o wster ./cmd/wster`.
+4. Build the `wster` command using `go build -o wster ./cmd/wster`.
 5. Move the wster executable to a directory in your PATH. For example, on Unix-based systems (Linux, macOS), you can move it to /usr/local/bin:
 
 ```bash
@@ -80,8 +80,7 @@ To access a value in a dictionary, use its key enclosed in square brackets:
 let aliceAge = ages["Alice"] // 30
 ```
 
-7. Custom Types
-   Webster can also support custom types using structures (structs) and classes. Structs are value types, while classes are reference types. You can define properties and methods for both structs and classes.
+7. Custom Types: Webster can also support custom types using structures (structs) and classes. Structs are value types, while classes are reference types. You can define properties and methods for both structs and classes.
 
 - Structs
 
@@ -104,22 +103,24 @@ let distance = pointA.distance(to: pointB)
 
 - Classes
 
+```swift
 class Person {
-let name: String
-let age: Int
+  let name: String
+  let age: Int
 
-init(name: String, age: Int) {
-self.name = name
-self.age = age
-}
+  init(name: String, age: Int) {
+    self.name = name
+    self.age = age
+  }
 
-func greet() {
-print("Hello, my name is \(name) and I am \(age) years old.")
-}
+  func greet() {
+    print("Hello, my name is \(name) and I am \(age) years old.")
+  }
 }
 
 let alice = Person(name: "Alice", age: 30)
 alice.greet()
+```
 
 ### Conditional Statements
 
