@@ -76,14 +76,14 @@ webster/
 1. Install [webster programming language]() using npm as:
 
 ```bash
-npm install webster
+npm install wster
 ```
 
 2. Open your terminal and execute `.wb` file as:
 
 ```bash
 # Assuming we have an example.wb file
-web example.wb
+wster example.wb
 ```
 
 Or create `web` executable locally yourself as:
@@ -106,6 +106,13 @@ cd webster
 
 ```bash
 go build -o web ./cmd/web`
+```
+
+5. 2. Open your terminal and execute `.wb` file as:
+
+```bash
+# Assuming we have an example.wb file
+web example.wb
 ```
 
 5. Move the wster executable to a directory in your PATH. For example, on Unix-based systems (Linux, macOS), you can move it to `/usr/local/bin`:
