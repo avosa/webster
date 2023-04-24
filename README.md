@@ -108,17 +108,17 @@ cd webster
 go build -o web ./cmd/web`
 ```
 
-5. Open your terminal and execute `.wb` file as:
-
-```bash
-# Assuming we have an example.wb file
-web example.wb
-```
-
 5. Move the wster executable to a directory in your PATH. For example, on Unix-based systems (Linux, macOS), you can move it to `/usr/local/bin`:
 
 ```bash
 sudo mv web /usr/local/bin
+```
+
+6. Open your terminal and execute `.wb` file as:
+
+```bash
+# Assuming we have an example.wb file
+web example.wb
 ```
 
 To learn more about the [webster programming language](https://github.com/avosa/webster) visit the [docs section](https://github.com/avosa/webster/blob/main/docs.md).
