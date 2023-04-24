@@ -5,9 +5,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/avosa/webster/evaluator"
 	"github.com/avosa/webster/lexer"
-	"github.com/avosa/webster/object"
 	"github.com/avosa/webster/parser"
 )
 
@@ -28,18 +26,11 @@ func main() {
 	l := lexer.New(string(code))
 	p := parser.New(l)
 
-	program := p.ParseProgram()
 	if len(p.Errors()) != 0 {
 		printParserErrors(p.Errors())
 		os.Exit(1)
 	}
 
-	env := object.NewEnvironment()
-	evaluated := evaluator.Eval(program, env)
-
-	if evaluated != nil {
-		fmt.Println(evaluated.Inspect())
-	}
 }
 
 func printParserErrors(errors []string) {
