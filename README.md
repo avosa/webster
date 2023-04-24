@@ -108,7 +108,7 @@ cd webster
 go build -o web ./cmd/web`
 ```
 
-5. 2. Open your terminal and execute `.wb` file as:
+5. Open your terminal and execute `.wb` file as:
 
 ```bash
 # Assuming we have an example.wb file
