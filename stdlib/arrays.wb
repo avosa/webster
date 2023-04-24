@@ -1,0 +1,31 @@
+func ArrayPush(arr, element) {
+    arr << element
+}
+
+func ArrayPop(arr) {
+    arr.pop()
+}
+
+func ArrayShift(arr) {
+    arr.shift()
+}
+
+func ArrayUnshift(arr, element) {
+    arr.unshift(element)
+}
+
+func ArraySlice(arr, start, end) {
+    arr.slice(start, end)
+}
+
+func ArrayJoin(arr, separator) {
+    arr.join(separator)
+}
+
+func ArrayReverse(arr) {
+    arr.reverse()
+}
+
+func ArraySort(arr) {
+    arr.sort()
+}

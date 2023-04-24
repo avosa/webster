@@ -1,0 +1,68 @@
+// import standard library modules
+import "arrays"
+import "dictionaries"
+import "strings"
+
+// define a function that takes two parameters and returns their sum
+func sum(a, b) {
+    return a + b
+}
+
+// define an array and print its length
+myArray := [1, 2, 3]
+println("Length of myArray:", len(myArray))
+
+// push a new element to the array and print its length again
+arrays.ArrayPush(myArray, 4)
+println("Length of myArray after push:", len(myArray))
+
+// define a dictionary and print its keys
+myDict := {"name": "John", "age": 30, "location": "New York"}
+println("Keys of myDict:", dictionaries.DictionaryKeys(myDict))
+
+// check if the dictionary contains a certain key
+containsKey := dictionaries.DictionaryContainsKey(myDict, "age")
+println("Does myDict contain key 'age'?", containsKey)
+
+// replace a substring in a string
+myString := "Hello, world!"
+newString := strings.StringReplace(myString, "world", "Webster")
+println(newString)
+
+// define a class
+class Person {
+    name: String
+    age: Integer
+    
+    // constructor
+    func initialize(name: String, age: Integer) {
+        self.name = name
+        self.age = age
+    }
+    
+    // method
+    func sayHello() {
+        println("Hello, my name is", self.name)
+    }
+}
+
+// instantiate an object of the class and call its method
+john := Person("John", 30)
+john.sayHello()
+
+// define a function with named parameters
+func printDistance(from, to, distance) {
+    println("Distance from", from, "to", to, "is", distance)
+}
+
+// call the function with named arguments
+printDistance(from: "New York", to: "Los Angeles", distance: 2789)
+
+// define a function with default parameter values
+func greet(name = "world") {
+    println("Hello,", name)
+}
+
+// call the function with and without argument
+greet()
+greet("John")

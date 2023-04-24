@@ -1,0 +1,27 @@
+func DictionaryKeys(dict) {
+    keys := []
+    for k, v in dict {
+        keys << k
+    }
+    return keys
+}
+
+func DictionaryValues(dict) {
+    values := []
+    for k, v in dict {
+        values << v
+    }
+    return values
+}
+
+func DictionaryContainsKey(dict, key) {
+    return dict.has_key(key)
+}
+
+func DictionaryContainsValue(dict, value) {
+    return dict.has_value(value)
+}
+
+func DictionaryDelete(dict, key) {
+    dict.delete(key)
+}

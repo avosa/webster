@@ -1,0 +1,31 @@
+func StringSplit(str, separator) {
+    return str.split(separator)
+}
+
+func StringReplace(str, old, new) {
+    return str.replace(old, new)
+}
+
+func StringTrim(str) {
+    return str.trim()
+}
+
+func StringToUpper(str) {
+    return str.upper()
+}
+
+func StringToLower(str) {
+    return str.lower()
+}
+
+func StringCapitalize(str) {
+    return str.capitalize()
+}
+
+func StringStartsWith(str, prefix) {
+    return str.starts_with(prefix)
+}
+
+func StringEndsWith(str, suffix) {
+    return str.ends_with(suffix)
+}
