@@ -4,6 +4,8 @@ import (
 	"bytes"
 
 	"github.com/avosa/webster/token"
+	"github.com/avosa/webster/lexer"
+
 )
 
 type Node interface {
