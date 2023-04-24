@@ -2,7 +2,7 @@
 
 This README provides an overview of the language's features and syntax.
 
-Keep in mind that this arithmetic interpreter is limited in functionality and does not support the full feature set described in the README. Developing a complete interpreter or compiler for the Webster programming language is a work in progress.
+Keep in mind that this interpreter is limited in functionality and isn't feature-rich yet. Developing a complete interpreter or compiler for the Webster programming language is a work in progress.
 
 ### Variables
 
