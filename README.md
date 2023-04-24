@@ -71,7 +71,7 @@ webster/
 
 # Getting started
 
-## Installation
+To start using the Webster language, follow these steps:
 
 1. Install [webster programming language]() using npm as:
 
@@ -86,23 +86,23 @@ npm install wster
 wster example.wb
 ```
 
-Or create `web` executable locally yourself as:
+Or create `web` executable locally yourself:
 
 1. Install [Go](https://go.dev/).
 
-2. Clone project:
+2. Clone the project:
 
 ```bash
 git clone https://github.com/avosa/webster.git
 ```
 
-3. Cd into webster directory
+3. Change to the `webster` directory:
 
 ```bash
 cd webster
 ```
 
-4. Build the `web` command using:
+4. Build the `web `command:
 
 ```bash
 go build -o web ./cmd/web`
@@ -114,12 +114,14 @@ go build -o web ./cmd/web`
 sudo mv web /usr/local/bin
 ```
 
-6. Open your terminal and execute `.wb` file as:
+6. Open your terminal and execute `.wb` file:
 
 ```bash
 # Assuming we have an example.wb file
 web example.wb
 ```
+
+Now you're ready to explore the features of the Webster language and start writing your own programs!
 
 To learn more about the [webster programming language](https://github.com/avosa/webster) visit the [docs section](https://github.com/avosa/webster/blob/main/docs.md).
 
