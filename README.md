@@ -79,9 +79,10 @@ webster/
 npm install webster
 ```
 
-2. Open your terminal and execute the `example.wb` file with the command:
+2. Open your terminal and execute `.wb` file as:
 
 ```bash
+# Assuming we have an example.wb file
 web example.wb
 ```
 
@@ -101,7 +102,12 @@ git clone https://github.com/avosa/webster.git
 cd webster
 ```
 
-4. Build the `web` command using `go build -o web ./cmd/web`.
+4. Build the `web` command using:
+
+```bash
+go build -o web ./cmd/web`
+```
+
 5. Move the wster executable to a directory in your PATH. For example, on Unix-based systems (Linux, macOS), you can move it to `/usr/local/bin`:
 
 ```bash
@@ -110,6 +116,8 @@ sudo mv web /usr/local/bin
 
 To learn more about the [webster programming language](https://github.com/avosa/webster) visit the [docs section](https://github.com/avosa/webster/blob/main/docs.md).
 
-# Author
+# Copyright and License
 
-[Webster Avosa](https://github.com/avosa)
+Copyright (c) 2023 Webster Avosa
+
+Source code is released under the [MIT license](https://github.com/avosa/webster/blob/main/licence.md).
